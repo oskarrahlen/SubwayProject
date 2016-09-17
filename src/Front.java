@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.*;
@@ -16,10 +17,10 @@ import javax.swing.*;
 public class Front extends JFrame {
 
 	private JPanel panel = new JPanel();
-	private JLabel label = new JLabel();
+	private JLabel nextSubwayLabel = new JLabel("", SwingConstants.CENTER);
 	
 	public Front(){
-		setTitle("The coolest subway sub in the sub tub");
+		setTitle("App");
 		double width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		double height = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		setSize((int)width, (int)height);
@@ -29,12 +30,17 @@ public class Front extends JFrame {
 		
 		setDefaultCloseOperation(3);
 		panel.setLayout(new BorderLayout());
-		panel.add(label, BorderLayout.NORTH);
+		panel.add(nextSubwayLabel, BorderLayout.NORTH);
 		panel.setBackground(Color.BLACK);
-		label.setText("Hello my name is nice");
-		label.setForeground(Color.YELLOW);
+		nextSubwayLabel.setText("ERROR");
+		nextSubwayLabel.setForeground(Color.YELLOW);
+		nextSubwayLabel.setFont(new Font("Courier New", Font.BOLD, 60));
+	}
+	
+	public void setSubwayLabels(long[][] input){
 		
 		
+		nextSubwayLabel.setText("Nästa tåg: " + input[0][1] + " minuter");
 	}
 	
 }
